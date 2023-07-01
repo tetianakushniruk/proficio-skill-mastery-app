@@ -140,3 +140,100 @@ Generate a JSON roadmap for mastering Graphic Design. The roadmap should include
 Generate a JSON roadmap for mastering {field}. The roadmap should include key milestones with their respective names and descriptions.
 
 '''
+
+books_prompt = '''
+Generate a JSON list of recommended books for Data Science. Each book should have the properties name, description, and author.
+{{
+  \"books\": [
+    {{
+      \"name\": \"Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow\",
+      \"description\": \"This book provides a comprehensive introduction to machine learning, covering essential algorithms and practical examples. It's authored by Aurélien Géron.\",
+      \"author\": \"Aurélien Géron\"
+    }},
+    {{
+      \"name\": \"Python for Data Analysis\",
+      \"description\": \"Written by Wes McKinney, the creator of the pandas library, this book offers a practical guide to data manipulation and analysis using Python.\",
+      \"author\": \"Wes McKinney\"
+    }},
+    {{
+      \"name\": \"The Elements of Statistical Learning\",
+      \"description\": \"This influential book by Trevor Hastie, Robert Tibshirani, and Jerome Friedman covers statistical learning methods, including regression, classification, and clustering.\",
+      \"author\": \"Trevor Hastie, Robert Tibshirani, Jerome Friedman\"
+    }},
+    {{
+      \"name\": \"Deep Learning\",
+      \"description\": \"Authored by Ian Goodfellow, Yoshua Bengio, and Aaron Courville, this book is a comprehensive guide to deep learning techniques, covering theory and practical applications.\",
+      \"author\": \"Ian Goodfellow, Yoshua Bengio, Aaron Courville\"
+    }},
+    {{
+      \"name\": \"Data Science for Business\",
+      \"description\": \"This book by Foster Provost and Tom Fawcett explores the application of data science in business contexts, providing insights on data-driven decision-making.\",
+      \"author\": \"Foster Provost, Tom Fawcett\"
+    }}
+  ]
+}}
+## 
+Generate a JSON list of recommended books for Web Development. Each book should have the properties name, description, and author.
+{{ 
+  \"books\": [ 
+    {{ 
+      \"name\": \"Eloquent JavaScript\", 
+      \"description\": \"This book by Marijn Haverbeke is an in-depth guide to JavaScript programming, covering fundamental concepts and advanced techniques.\", 
+      \"author\": \"Marijn Haverbeke\" 
+    }}, 
+    {{ 
+      \"name\": \"HTML and CSS: Design and Build Websites\", 
+      \"description\": \"Authored by Jon Duckett, this book provides a beginner-friendly introduction to HTML and CSS, with practical examples and visually appealing design.\", 
+      \"author\": \"Jon Duckett\" 
+    }}, 
+    {{ 
+      \"name\": \"JavaScript: The Good Parts\", 
+      \"description\": \"Written by Douglas Crockford, this book focuses on the good parts of JavaScript and provides valuable insights for writing clean and maintainable code.\", 
+      \"author\": \"Douglas Crockford\" 
+    }}, 
+    {{ 
+      \"name\": \"Learning Web Design\", 
+      \"description\": \"This book by Jennifer Robbins is a beginner's guide to web design, covering HTML, CSS, responsive design, and web graphics.\", 
+      \"author\": \"Jennifer Robbins\" 
+    }}, 
+    {{ 
+      \"name\": \"CSS Secrets\", 
+      \"description\": \"Lea Verou's book explores lesser-known CSS techniques, tips, and tricks to enhance your web designs and solve common challenges.\", 
+      \"author\": \"Lea Verou\" 
+    }} 
+  ] 
+}} 
+##
+Generate a JSON list of recommended books for Graphic Design. Each book should have the properties name, description, and author.
+{{ 
+  \"books\": [ 
+    {{ 
+      \"name\": \"Thinking with Type\", 
+      \"description\": \"This book by Ellen Lupton is a comprehensive guide to typography, covering principles, history, and practical applications in design.\", 
+      \"author\": \"Ellen Lupton\" 
+    }}, 
+    {{ 
+      \"name\": \"The Non-Designer's Design Book\", 
+      \"description\": \"Robin Williams' book provides an introduction to design principles and techniques for non-designers, helping them create visually appealing designs.\", 
+      \"author\": \"Robin Williams\" 
+    }}, 
+    {{ 
+      \"name\": \"Graphic Design School\", 
+      \"description\": \"Dabner, Stewart, and Zempol's book is a comprehensive introduction to graphic design, covering design fundamentals, techniques, and practical projects.\", 
+      \"author\": \"David Dabner, Sandra Stewart, Eric Zempol\" 
+    }}, 
+    {{ 
+      \"name\": \"Color Design Workbook\", 
+      \"description\": \"This book by Terry Stone and Sean Adams explores the use of color in design, providing insights, examples, and exercises to develop color skills.\", 
+      \"author\": \"Terry Stone, Sean Adams\" 
+    }}, 
+    {{ 
+      \"name\": \"Logo Design Love\", 
+      \"description\": \"Authored by David Airey, this book focuses on the process and principles of logo design, showcasing inspiring case studies and practical advice.\", 
+      \"author\": \"David Airey\" 
+    }} 
+  ] 
+}} 
+##
+Generate a JSON list of recommended books for {field}. Each book should have the properties name, description, and author.
+'''
