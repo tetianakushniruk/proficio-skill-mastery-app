@@ -237,3 +237,85 @@ Generate a JSON list of recommended books for Graphic Design. Each book should h
 ##
 Generate a JSON list of recommended books for {field}. Each book should have the properties name, description, and author.
 '''
+
+interview_q_prompt = '''
+Generate a JSON list of interview questions and answers for Data Science. Each question should have the properties question and answer.
+{{
+  \"interview_questions\": [
+    {{
+      \"question\": \"What is the Central Limit Theorem?\",
+      \"answer\": \"The Central Limit Theorem states that when independent random variables are added, their sum tends toward a normal distribution.\"
+    }},
+    {{
+      \"question\": \"Explain the difference between supervised and unsupervised learning.\",
+      \"answer\": \"Supervised learning involves training a model using labeled data, while unsupervised learning involves finding patterns and relationships in unlabeled data.\"
+    }},
+    {{
+      \"question\": \"What is regularization in machine learning?\",
+      \"answer\": \"Regularization is a technique used to prevent overfitting in machine learning models by adding a penalty term to the loss function.\"
+    }},
+    {{
+      \"question\": \"What is the difference between precision and recall?\",
+      \"answer\": \"Precision is the ratio of true positives to the sum of true positives and false positives, while recall is the ratio of true positives to the sum of true positives and false negatives.\"
+    }},
+    {{
+      \"question\": \"What is feature selection in machine learning?\",
+      \"answer\": \"Feature selection is the process of selecting the most relevant and informative features from a dataset to improve model performance and reduce complexity.\"
+    }}
+  ]
+}}
+##
+Generate a JSON list of interview questions and answers for Web Development. Each question should have the properties question and answer.
+{{
+  \"interview_questions\": [
+    {{
+      \"question\": \"What is the difference between HTML and HTML5?\",
+      \"answer\": \"HTML5 introduces new elements, attributes, and APIs, providing enhanced semantic markup, better support for multimedia, and improved accessibility.\"
+    }},
+    {{
+      \"question\": \"Explain the box model in CSS.\",
+      \"answer\": \"The box model in CSS describes the rectangular boxes that surround elements, consisting of content, padding, border, and margin.\"
+    }},
+    {{
+      \"question\": \"What is the difference between a block-level element and an inline element?\",
+      \"answer\": \"Block-level elements start on a new line and take up the full width available, while inline elements do not start on a new line and only take up as much width as necessary.\"
+    }},
+    {{
+      \"question\": \"What is the purpose of media queries in responsive web design?\",
+      \"answer\": \"Media queries in CSS allow developers to apply different styles and layouts based on various device characteristics, such as screen size, resolution, or orientation.\"
+    }},
+    {{
+      \"question\": \"What is the role of JavaScript in web development?\",
+      \"answer\": \"JavaScript is a programming language that enables interactive and dynamic features on web pages, such as form validation, DOM manipulation, and AJAX requests.\"
+    }}
+  ]
+}}
+##
+Generate a JSON list of interview questions and answers for Graphic Design. Each question should have the properties question and answer.
+{{
+  \"interview_questions\": [
+    {{
+      \"question\": \"What is the principle of contrast in design?\",
+      \"answer\": \"Contrast is the juxtaposition of different elements to create visual interest, highlight important information, and create a sense of hierarchy.\"
+    }},
+    {{
+      \"question\": \"Explain the RGB and CMYK color models.\",
+      \"answer\": \"The RGB color model is used for digital displays and combines red, green, and blue to create a wide range of colors. The CMYK color model is used for print and combines cyan, magenta, yellow, and black.\"
+    }},
+    {{
+      \"question\": \"What is the role of typography in graphic design?\",
+      \"answer\": \"Typography plays a crucial role in graphic design by enhancing readability, setting the tone, and conveying messages effectively through the use of fonts, sizes, spacing, and hierarchy.\"
+    }},
+    {{
+      \"question\": \"What is the golden ratio in design?\",
+      \"answer\": \"The golden ratio is a mathematical ratio of approximately 1.618 that is believed to create aesthetically pleasing proportions. It is often used in design compositions and layouts.\"
+    }},
+    {{
+      \"question\": \"What are the key principles of good logo design?\",
+      \"answer\": \"Good logo design should be memorable, scalable, versatile, appropriate for the brand, and communicate the brand's values or unique attributes effectively.\"
+    }}
+  ]
+}} 
+##
+Generate a JSON list of interview questions and answers for {field}. Each question should have the properties question and answer.
+'''
