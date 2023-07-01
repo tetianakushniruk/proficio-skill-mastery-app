@@ -187,3 +187,45 @@ def tip(field):
     print(data)
 
     return data
+
+def profession(input):
+    response = ai21.Completion.execute(
+        model="j2-mid",
+        prompt=prompts.profession_prompt.format(input=input),
+        numResults=1,
+        maxTokens=60,
+        temperature=0.65,
+        topKReturn=0,
+        topP=1,
+        countPenalty={
+            "scale": 0,
+            "applyToNumbers": False,
+            "applyToPunctuations": False,
+            "applyToStopwords": False,
+            "applyToWhitespaces": False,
+            "applyToEmojis": False
+        },
+        frequencyPenalty={
+            "scale": 0,
+            "applyToNumbers": False,
+            "applyToPunctuations": False,
+            "applyToStopwords": False,
+            "applyToWhitespaces": False,
+            "applyToEmojis": False
+        },
+        presencePenalty={
+            "scale": 0,
+            "applyToNumbers": False,
+            "applyToPunctuations": False,
+            "applyToStopwords": False,
+            "applyToWhitespaces": False,
+            "applyToEmojis": False
+        },
+        stopSequences=["##"]
+    )
+
+    data = response['completions'][0]['data']['text']
+    data = json.loads(data)['suggested_professions']
+    print(data)
+
+    return data
