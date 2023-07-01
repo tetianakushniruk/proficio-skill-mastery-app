@@ -8,7 +8,6 @@ from dotenv import load_dotenv
 load_dotenv()
 ai21.api_key = os.getenv('API_KEY')
 
-
 def api_request(**kwargs):
     default_params = {
         'model': "j2-mid",
@@ -52,9 +51,23 @@ def api_request(**kwargs):
         try:
             data = json.loads(data)
             break
-        except json.decoder.JSONDecodeError as e:
+        except json.decoder.JSONDecodeError:
             pass
     return data
+
+
+def is_valid_profession(field):
+    data = api_request(model="j2-ultra",
+                       prompt=prompts.valid_profession_prompt.format(field=field),
+                       maxTokens=35,
+                       temperature=0.8,
+                       stopSequences=["##"])
+    if data['valid'].lower() == 'true':
+        return True,
+    elif data['valid'].lower() == 'false':
+        return False, data['message']
+    else:
+        raise ValueError
 
 
 def roadmap(field):
@@ -123,3 +136,4 @@ def profession(user_input):
     print(data)
 
     return data
+

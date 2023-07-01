@@ -368,3 +368,92 @@ Generate a list of suggested professions based on my skills, education, and expe
 ##
 Generate a list of suggested professions based on my skills, education, and experiences: {input}. 
 '''
+
+valid_profession_prompt = '''
+Check if user input is a valid job, profession, field or area of interest. If valid return 'True', if no return error message.
+User input: data science 
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: Journalism 
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: teaching
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: Medicine
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: music
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: Engineering
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: Law
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: finance
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: electrics
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: nail services
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: linguistics
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: actor
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: design
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: movie director
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: repair work
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field  or area of interest. If yes - return 'True', if no - return error message.
+User input: metallurgy
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: plumber
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: foundry
+{{ \"valid\": \"True\", \"message\": \"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: qwerty 
+{{ \"valid\": \"False\", \"message\": \"Please provide a valid profession. For example, \"Artificial Intelligence\"\" }}
+##
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: IT 
+{{ \"valid\": \"False\", \"message\": \"IT is a very broad concept. Input a specific field or area you're interested in, such as \"AI\"\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: dog 
+{{ \"valid\": \"False\", \"message\": \"What you entered doesn't seem to match any known profession.\" }}
+## 
+Check if user input is a valid job, profession, field or area of interest. If yes - return 'True', if no - return error message.
+User input: {field}
+'''
