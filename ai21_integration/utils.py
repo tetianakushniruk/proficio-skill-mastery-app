@@ -147,4 +147,43 @@ def interview_q(field):
 
     return data
 
+def tip(field):
+    response = ai21.Completion.execute(
+        model="j2-mid",
+        prompt=prompts.tip_prompt.format(field=field),
+        numResults=1,
+        maxTokens=190,
+        temperature=0.85,
+        topKReturn=0,
+        topP=1,
+        countPenalty={
+            "scale": 0,
+            "applyToNumbers": False,
+            "applyToPunctuations": False,
+            "applyToStopwords": False,
+            "applyToWhitespaces": False,
+            "applyToEmojis": False
+        },
+        frequencyPenalty={
+            "scale": 0,
+            "applyToNumbers": False,
+            "applyToPunctuations": False,
+            "applyToStopwords": False,
+            "applyToWhitespaces": False,
+            "applyToEmojis": False
+        },
+        presencePenalty={
+            "scale": 0,
+            "applyToNumbers": False,
+            "applyToPunctuations": False,
+            "applyToStopwords": False,
+            "applyToWhitespaces": False,
+            "applyToEmojis": False
+        },
+        stopSequences=["##"]
+    )
 
+    data = response['completions'][0]['data']['text']
+    print(data)
+
+    return data
