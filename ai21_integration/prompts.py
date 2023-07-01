@@ -322,13 +322,13 @@ Generate a JSON list of interview questions and answers for {field}. Each questi
 
 tip_prompt = '''
 Generate a useful tip for Data Science. 
-Spend more time cleaning your data than analyzing it.
+{{ "tip": "Spend more time cleaning your data than analyzing it." }}
 ##
 Generate a useful tip for Web Development.
-Make sure to test your web application thoroughly before releasing it to the public.
+{{ "tip": "Make sure to test your web application thoroughly before releasing it to the public." }}
 ##
 Generate a useful tip for Graphic Design.
-Use the rule of thirds to create a balanced and visually appealing layout.
+{{ "tip": "Use the rule of thirds to create a balanced and visually appealing layout." }}
 ##
 Generate a useful tip for {field}.
 '''
