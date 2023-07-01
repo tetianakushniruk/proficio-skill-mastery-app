@@ -332,3 +332,39 @@ Use the rule of thirds to create a balanced and visually appealing layout.
 ##
 Generate a useful tip for {field}.
 '''
+
+profession_prompt = '''
+Generate a list of suggested professions based on my skills, education, and experiences: I know Python programming and Statistics. I have Bachelor's degree in Computer Science. 
+{{
+  \"suggested_professions\": [
+    \"Data Scientist\",
+    \"Machine Learning Engineer\",
+    \"Data Analyst\",
+    \"Quantitative Analyst\",
+    \"Business Intelligence Analyst\"
+  ]
+}}
+##
+Generate a list of suggested professions based on my skills, education, and experiences: I'm passionate about drawing. I am familiar with Adobe photoshop and illustrator. I've exhibited my artworks at local galleries.
+{{
+  \"suggested_professions\": [
+    \"Graphic Designer\",
+    \"Illustrator\",
+    \"Visual Development Artist\",
+    \"Concept Artist\"
+  ]
+}}
+##
+Generate a list of suggested professions based on my skills, education, and experiences: I love gardening and plant care.
+{{
+  \"suggested_professions\": [
+    \"Landscaper\",
+    \"Gardener\",
+    \"Horticulturist\",
+    \"Landscape Designer\",
+    \"Groundskeeper\"
+  ]
+}}
+##
+Generate a list of suggested professions based on my skills, education, and experiences: {input}. 
+'''
