@@ -63,12 +63,11 @@ def is_valid_profession(field):
                        temperature=0.8,
                        stopSequences=["##"])
     if data['valid'].lower() == 'true':
-        return True,
+        return True, None
     elif data['valid'].lower() == 'false':
         return False, data['message']
     else:
-        raise ValueError
-
+        return False, None
 
 def roadmap(field):
     data = api_request(prompt=prompts.roadmap_prompt.format(field=field),
@@ -136,4 +135,3 @@ def profession(user_input):
     print(data)
 
     return data
-
