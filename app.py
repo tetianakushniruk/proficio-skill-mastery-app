@@ -1,31 +1,71 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, session
 from ai21_integration import utils
+
+import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 
-UNKNOWN_ERROR = 'Oops! Something went wrong. Try again'
+load_dotenv()
+app.secret_key = os.getenv('SECRET_KEY')
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/validate', methods=['POST'])
+def validate():
+    query = request.form['query']
+    is_valid, error_msg = utils.is_valid_profession(query)
+    print(error_msg)
+    if not is_valid:
+        return jsonify({'error': True, 'error_msg': error_msg}), 400
+    return jsonify({'success': True}), 200
+
+@app.route('/roadmap', methods=['POST'])
+def roadmap():
+    query = request.form['query']
+    try:
+        session['roadmap'] = utils.roadmap(query)
+    except Exception:
+        return jsonify({'error': True}), 400
+    return jsonify({'success': True}), 200
+
+@app.route('/books', methods=['POST'])
+def books():
+    query = request.form['query']
+    try:
+        session['books'] = utils.books(query)
+    except Exception:
+        return jsonify({'error': True}), 400
+    return jsonify({'success': True}), 200
+
+@app.route('/questions', methods=['POST'])
+def questions():
+    query = request.form['query']
+    try:
+        session['questions'] = utils.interview_q(query)
+    except Exception:
+        return jsonify({'error': True}), 400
+    return jsonify({'success': True}), 200
+
+@app.route('/tip', methods=['POST'])
+def tip():
+    query = request.form['query']
+    try:
+        session['tip'] = utils.tip(query)
+    except Exception:
+        return jsonify({'error': True}), 400
+    return jsonify({'success': True}), 200
+
+@app.route('/', methods=['GET'])
 def home():
-    if request.method == 'POST':
-        query = request.form['q']
-        is_valid, error_msg = utils.is_valid_profession(query)
-        if not is_valid:
-            return render_template("index.html", title="Proficiō: Error",
-                                    error=True, error_msg=error_msg or UNKNOWN_ERROR)
+    roadmap = session.get('roadmap')
+    books = session.get('books')
+    questions = session.get('questions')
+    tip = session.get('tip')
 
-        roadmap = utils.roadmap(query)
-        books = utils.books(query)
-        interview_q = utils.interview_q(query)
-        tip = utils.tip(query)
-
-        return render_template("index.html", title="Proficiō: Home",
-                               roadmap=roadmap,
-                               books=books,
-                               questions=interview_q,
-                               tip=tip)
-
-    return render_template("index.html", title="Proficiō: Home")
+    return render_template("index.html", title="Proficiō: Home",
+                           roadmap=roadmap,
+                           books=books,
+                           questions=questions,
+                           tip=tip)
 
 @app.route('/find_profession')
 def find_profession():
