@@ -1,5 +1,5 @@
 import ai21
-import prompts
+from ai21_integration import prompts
 import json
 
 import os
