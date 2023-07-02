@@ -14,17 +14,25 @@
                     <span class="input-group-text bi-search" id="basic-addon1">
                     </span>
 
-                    <input name='q' type="search" class="form-control" id="search-bar"
+                    <input name='query' type="search" class="form-control" id="search-bar"
                            placeholder="Type in the profession you're interested in..." aria-label="Search">
 
                     <button type="submit" class="form-control" id="search-button">Search</button>
                 </div>
             </form>
+            <div id="loading-progress" style="display: none;">
+                <div id="loading">
+                    {% include "loading.html" %}
+                </div>
+
+                <h6 class="text-center" id="progress-msg"></h6>
+            </div>
         </div>
     </div>
 </div>
 
 {% endblock section_1 %}
+
 
 {% block section_2 %}
 
@@ -124,4 +132,4 @@
     </div>
 </div>
 
-{% endblock section_2 %}
+{% endblock %}

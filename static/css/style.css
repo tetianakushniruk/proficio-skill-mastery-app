@@ -617,6 +617,68 @@ strong {
   border-color: transparent;
 }
 
+/*---------------------------------------
+  LOADING
+-----------------------------------------*/
+
+.loading-container{
+  margin-top: 50px;
+  padding-bottom: 70px;
+}
+
+.circle{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  animation: loading 1.5s cubic-bezier(.8, .5, .2, 1.4) infinite;
+  transform-origin: bottom center;
+  position: relative;
+  margin-right: 5px;
+}
+@keyframes loading{
+  0%{
+    transform: translateY(0px);
+    background-color: var(--white-color);
+  }
+  50%{
+    transform: translateY(50px);
+    background-color: var(--primary-color);
+  }
+  100%{
+    transform: translateY(0px);
+    background-color: var(--secondary-color);
+  }
+}
+.circle-1{
+  animation-delay: 0.1s;
+}
+.circle-2{
+  animation-delay: 0.2s;
+}
+.circle-3{
+  animation-delay: 0.3s;
+}
+.circle-4{
+  animation-delay: 0.4s;
+}
+.circle-5{
+  animation-delay: 0.5s;
+}
+.circle-6{
+  animation-delay: 0.6s;
+}
+.circle-7{
+  animation-delay: 0.7s;
+}
+.circle-8{
+  animation-delay: 0.8s;
+}
+
+.error_msg{
+  margin-top: 100px;
+}
 
 /*---------------------------------------
   RESPONSIVE STYLES               
