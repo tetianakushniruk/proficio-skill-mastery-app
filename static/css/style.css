@@ -87,6 +87,7 @@ h4 {
 
 h5 {
   font-size: var(--h5-font-size);
+  color: var(--primary-color);
 }
 
 h6 {
@@ -313,14 +314,16 @@ strong {
   position: relative;
   overflow: hidden;
   padding-top: 100px;
-  padding-bottom: 150px;
+  padding-bottom: 70px;
   border-radius: 0 0 var(--border-radius-large ) var(--border-radius-large);
+  height: 100vh;
 }
 
 .hero-section .input-group {
   background-color: var(--white-color);
   border-radius: var(--border-radius-large);
   padding: 10px 15px;
+  margin-bottom: 10px;
 }
 
 .hero-section .input-group-text {
@@ -334,6 +337,17 @@ strong {
   box-shadow: none;
   margin-bottom: 0;
   padding-left: 0;
+}
+
+.hero-section textarea {
+  border: 0;
+  box-shadow: none;
+  outline: none;
+  margin: 10px;
+  padding-left: 0;
+  resize: none;
+  height: 100px;
+  background: transparent;
 }
 
 .hero-section button[type="submit"] {
@@ -528,9 +542,8 @@ strong {
   line-height: 40px;
 }
 
-
 /*---------------------------------------
-  CUSTOM FORM               
+  SEARCH FORM
 -----------------------------------------*/
 .search-form .form-control {
   border-radius: var(--border-radius-large);
@@ -561,6 +574,46 @@ strong {
 .search-form button[type="submit"]:hover,
 .search-form button[type="submit"]:focus {
   background: var(--custom-btn-bg-hover-color);
+  border-color: transparent;
+}
+
+/*---------------------------------------
+  FIND PROFESSION FORM
+-----------------------------------------*/
+.find-profession-form{
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-medium);
+}
+.find-profession-form .form-control {
+  border-radius: var(--border-radius-large);
+  color: var(--p-color);
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 20px;
+  outline: none;
+}
+
+.form-floating>label {
+  padding-left: 20px;
+}
+
+.find-profession-form button[type="submit"] {
+  background: var(--custom-btn-bg-color);
+  border: none;
+  border-radius: var(--border-radius-large);
+  color: var(--white-color);
+  font-family: var(--title-font-family);
+  font-size: var(--p-font-size);
+  font-weight: var(--font-weight-semibold);
+  transition: all 0.3s;
+  margin: 0;
+  float: right;
+}
+
+.find-profession-form button[type="submit"]:hover,
+.find-profession-form button[type="submit"]:focus {
+  background: var(--white-color);
+  color: var(--primary-color);
   border-color: transparent;
 }
 
