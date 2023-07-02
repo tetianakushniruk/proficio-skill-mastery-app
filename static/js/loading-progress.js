@@ -26,6 +26,7 @@ $(document).ready(function() {
     loadingSection.show();
     loadingElement.show();
     progressMessageElement.removeClass('error_msg')
+    $('#section_1').addClass('expanded');
 
     performStep(currentStep);
 
@@ -41,6 +42,7 @@ $(document).ready(function() {
             performStep(step + 1);
           } else {
             loadingSection.hide();
+            $('#section_1').removeClass('expanded');
             $('#section_2').show();
           }
         },

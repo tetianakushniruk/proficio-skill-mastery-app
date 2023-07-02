@@ -20,12 +20,12 @@
                     <button type="submit" class="form-control" id="search-button">Search</button>
                 </div>
             </form>
-            <div id="loading-progress" style="display: none;">
-                <div id="loading">
+            <div id="loading-progress" class="loading-progress" style="display: none;">
+                <div id="loading" class="loading">
                     {% include "loading.html" %}
                 </div>
 
-                <h6 class="text-center" id="progress-msg"></h6>
+                <h6 class="progress-msg text-center" id="progress-msg"></h6>
             </div>
         </div>
     </div>
@@ -108,7 +108,7 @@
                             {% for x in questions %}
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="heading{{loop.index}}">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{loop.index}}" aria-expanded="false" aria-controls="collapse{{loop.index}}">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{loop.index}}" aria-expanded="true" aria-controls="collapse{{loop.index}}">
                                     {{ x['question'] }}
                                     </button>
                                 </h2>

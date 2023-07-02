@@ -314,8 +314,13 @@ strong {
   position: relative;
   overflow: hidden;
   padding-top: 100px;
-  padding-bottom: 70px;
+  padding-bottom: 120px;
   border-radius: 0 0 var(--border-radius-large ) var(--border-radius-large);
+  height: 60vh;
+  transition: height 0.5s ease;
+}
+
+.hero-section.expanded{
   height: 100vh;
 }
 
@@ -620,6 +625,12 @@ strong {
 /*---------------------------------------
   LOADING
 -----------------------------------------*/
+.loading-progress {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .loading-container{
   margin-top: 50px;
@@ -676,8 +687,8 @@ strong {
   animation-delay: 0.8s;
 }
 
-.error_msg{
-  margin-top: 100px;
+.progress-msg.error_msg{
+  margin-top: 50px;
 }
 
 /*---------------------------------------
@@ -721,16 +732,6 @@ strong {
     font-size: var(--h4-font-size);;
   }
 
-  .navbar-nav .dropdown-menu {
-    position: relative;
-    left: 10px;
-    opacity: 1;
-    pointer-events: auto;
-    max-width: 155px;
-    margin-top: 10px;
-    margin-bottom: 15px;
-  }
-
   .navbar-expand-lg .navbar-nav {
     padding-bottom: 20px;
   }
@@ -748,21 +749,6 @@ strong {
     padding: 10px;
   }
 
-  .featured-section {
-    border-radius: 0 0 80px 80px;
-    padding-bottom: 50px;
-  }
-
-  .custom-block-topics-listing .custom-block-image {
-    width: auto;
-  }
-
-  .custom-block-topics-listing > .d-flex,
-  .custom-block-topics-listing-info,
-  .custom-block-topics-listing a {
-    flex-direction: column;
-  }
-
   .roadmap-container .vertical-scrollable-roadmap .list-progress {
     height: 75%;
   }
@@ -770,11 +756,10 @@ strong {
   .roadmap-container .vertical-scrollable-roadmap li {
     padding-left: 135px;
   }
-
-  .subscribe-form-wrap {
-    padding-top: 30px;
-    padding-bottom: 0;
+  .hero-section {
+    height: 70vh;
   }
+
 }
 
 @media screen and (max-width: 480px) {
