@@ -8,14 +8,17 @@ app = Flask(__name__)
 def home():
     roadmap = ''
     books = ''
+    interview_q = ''
     if request.method == 'POST':
         query = request.form['q']
         is_valid = utils.is_valid_profession(query)
         roadmap = utils.roadmap(query)
         books = utils.books(query)
+        interview_q = utils.interview_q(query)
     return render_template("index.html", title="Proficiō: Home",
                            roadmap=roadmap,
-                           books=books)
+                           books=books,
+                           questions=interview_q)
 
 @app.route('/find_profession')
 def find_profession():

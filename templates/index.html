@@ -97,42 +97,18 @@
                 <div class="tab-pane fade" id="interview-tab-pane" role="tabpanel" aria-labelledby="interview-tab" tabindex="0">
                     <div class="col-lg-8 col-10 m-auto">
                         <div class="accordion" id="accordionExample">
+                            {% for x in questions %}
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                    Question 1?
+                                <h2 class="accordion-header" id="heading{{loop.index}}">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{loop.index}}" aria-expanded="false" aria-controls="collapse{{loop.index}}">
+                                    {{ x['question'] }}
                                     </button>
                                 </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet nibh nunc. Duis a lacinia risus.
-                                    </div>
+                                <div id="collapse{{loop.index}}" class="accordion-collapse collapse show" aria-labelledby="heading{{loop.index}}" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">{{ x['answer'] }}</div>
                                 </div>
                             </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Question 2?
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        Suspendisse ut justo aliquet, luctus lacus ornare, tristique arcu. Vestibulum blandit lectus vitae auctor suscipit.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Question 3?
-                                    </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        Sed vehicula porttitor sapien, at suscipit turpis euismod id. In porta tellus a commodo sollicitudin. Fusce scelerisque eros et dignissim pellentesque. In neque ante, elementum id lectus sit amet, rhoncus lacinia magna.
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
