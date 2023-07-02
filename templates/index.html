@@ -104,7 +104,7 @@
                                     {{ x['question'] }}
                                     </button>
                                 </h2>
-                                <div id="collapse{{loop.index}}" class="accordion-collapse collapse show" aria-labelledby="heading{{loop.index}}" data-bs-parent="#accordionExample">
+                                <div id="collapse{{loop.index}}" class="accordion-collapse collapse" aria-labelledby="heading{{loop.index}}" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">{{ x['answer'] }}</div>
                                 </div>
                             </div>
@@ -115,7 +115,7 @@
 
                 <div class="tab-pane fade" id="tips-tab-pane" role="tabpanel" aria-labelledby="tips-tab" tabindex="0">
                     <div class="tip">
-                        <h4 class="text-center mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h4>
+                        <h4 class="text-center mb-3"> {{ tip }} </h4>
                     </div>
                 </div>
 
