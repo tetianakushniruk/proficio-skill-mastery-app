@@ -9,14 +9,15 @@ app = Flask(__name__)
 load_dotenv()
 app.secret_key = os.getenv('SECRET_KEY')
 
+
 @app.route('/validate', methods=['POST'])
 def validate():
     query = request.form['query']
     is_valid, error_msg = utils.is_valid_profession(query)
-    print(error_msg)
     if not is_valid:
         return jsonify({'error': True, 'error_msg': error_msg}), 400
     return jsonify({'success': True}), 200
+
 
 @app.route('/roadmap', methods=['POST'])
 def roadmap():
@@ -27,6 +28,7 @@ def roadmap():
         return jsonify({'error': True}), 400
     return jsonify({'success': True}), 200
 
+
 @app.route('/books', methods=['POST'])
 def books():
     query = request.form['query']
@@ -35,6 +37,7 @@ def books():
     except Exception:
         return jsonify({'error': True}), 400
     return jsonify({'success': True}), 200
+
 
 @app.route('/questions', methods=['POST'])
 def questions():
@@ -45,6 +48,7 @@ def questions():
         return jsonify({'error': True}), 400
     return jsonify({'success': True}), 200
 
+
 @app.route('/tip', methods=['POST'])
 def tip():
     query = request.form['query']
@@ -54,18 +58,25 @@ def tip():
         return jsonify({'error': True}), 400
     return jsonify({'success': True}), 200
 
-@app.route('/', methods=['GET'])
-def home():
+
+@app.route('/get_data', methods=['GET'])
+def get_data():
     roadmap = session.get('roadmap')
     books = session.get('books')
     questions = session.get('questions')
     tip = session.get('tip')
+    session.clear()
 
-    return render_template("index.html", title="Proficiō: Home",
+    return render_template("data.html",
                            roadmap=roadmap,
                            books=books,
                            questions=questions,
                            tip=tip)
+
+@app.route('/', methods=['GET'])
+def home():
+    return render_template("index.html", title="Proficiō: Home")
+
 
 @app.route('/find_profession')
 def find_profession():

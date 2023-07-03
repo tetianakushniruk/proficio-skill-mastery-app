@@ -1,0 +1,95 @@
+<div class="container-fluid">
+    <div class="row">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="roadmap-tab" data-bs-toggle="tab" data-bs-target="#roadmap-tab-pane" type="button" role="tab" aria-controls="roadmap-tab-pane" aria-selected="true">Roadmap</button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="books-tab" data-bs-toggle="tab" data-bs-target="#books-tab-pane" type="button" role="tab" aria-controls="books-tab-pane" aria-selected="false">Books</button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="interview-tab" data-bs-toggle="tab" data-bs-target="#interview-tab-pane" type="button" role="tab" aria-controls="interview-tab-pane" aria-selected="false">Interview Questions</button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tips-tab" data-bs-toggle="tab" data-bs-target="#tips-tab-pane" type="button" role="tab" aria-controls="tips-tab-pane" aria-selected="false">Useful Tip</button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="roadmap-tab-pane" role="tabpanel" aria-labelledby="roadmap-tab" tabindex="0">
+                    <div class="row">
+                        <div class="col-lg-10 col-12 mx-auto">
+                            <div class="roadmap-container">
+                                <ul class="vertical-scrollable-roadmap" id="vertical-scrollable-roadmap">
+                                    {% for x in roadmap %}
+                                    <li>
+                                        <h4 class="mb-3">{{ x['name'] }}</h4>
+
+                                        <p>{{ x['description'] }}</p>
+
+                                        <div class="list-marks">
+                                            <h2 class="text-white">{{ loop.index }}</h2>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="books-tab-pane" role="tabpanel" aria-labelledby="books-tab" tabindex="0">
+                    <div class="row">
+                        {% for x in books %}
+                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+                                <div class="custom-block bg-white shadow-lg">
+                                    <div class="d-flex">
+                                        <div>
+                                            <h5 class="mb-2">{{ x['name'] }}</h5>
+                                            <p class="mb-2"><i>Author: {{ x['author'] }}</i></p>
+                                            <p class="mb-0">{{ x['description'] }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="interview-tab-pane" role="tabpanel" aria-labelledby="interview-tab" tabindex="0">
+                    <div class="col-lg-8 col-10 m-auto">
+                        <div class="accordion" id="accordionExample">
+                            {% for x in questions %}
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading{{loop.index}}">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{loop.index}}" aria-expanded="true" aria-controls="collapse{{loop.index}}">
+                                    {{ x['question'] }}
+                                    </button>
+                                </h2>
+                                <div id="collapse{{loop.index}}" class="accordion-collapse collapse" aria-labelledby="heading{{loop.index}}" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">{{ x['answer'] }}</div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="tips-tab-pane" role="tabpanel" aria-labelledby="tips-tab" tabindex="0">
+                    <div class="tip">
+                        <h4 class="text-center mb-3"> {{ tip }} </h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

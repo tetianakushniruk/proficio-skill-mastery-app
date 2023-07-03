@@ -27,6 +27,7 @@ $(document).ready(function() {
     loadingElement.show();
     progressMessageElement.removeClass('error_msg')
     $('#section_1').addClass('expanded');
+    $('#section_2').hide()
 
     performStep(currentStep);
 
@@ -36,21 +37,34 @@ $(document).ready(function() {
       $.ajax({
         url: urls[step],
         type: 'POST',
-        data: { query: query },
+        data: { 'query': query },
         success: function(response) {
           if (step < stepCount - 1) {
             performStep(step + 1);
           } else {
-            loadingSection.hide();
-            $('#section_1').removeClass('expanded');
-            $('#section_2').show();
+            getData();
           }
         },
         error: function(xhr) {
           var errorMessage = xhr.responseJSON && xhr.responseJSON.error_msg
               ? xhr.responseJSON.error_msg :'Oops! Something went wrong. Please try again.'
           loadingElement.hide();
-          progressMessageElement.text(errorMessage).addClass('error_msg')
+          progressMessageElement.text(errorMessage).addClass('error_msg');
+        }
+      });
+    }
+    function getData() {
+      $.ajax({
+        url: "/get_data",
+        type: "GET",
+        success: function(response) {
+            loadingSection.hide();
+            $('#section_1').removeClass('expanded');
+            $("#data").html(response);
+            $('#section_2').show()
+        },
+        error: function(xhr) {
+          //Do Something to handle error
         }
       });
     }
