@@ -7,14 +7,21 @@
         <div class="col-lg-8 col-12 mx-auto">
             <h1 class="text-white text-center">Find Your Profession</h1>
 
-            <h6 class="text-center">Lorem ipsum dolor sit amet.</h6>
+            <h6 class="text-center">Uncover your true calling based on your skills, passions, experience, and education.</h6>
 
             <form method="get" class="find-profession-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
                 <div class="input-group input-group-lg">
-                    <textarea class="form-control" id="search-bar" placeholder="Lorem ipsum dolor sit amet" aria-label="Search"></textarea>
+                    <textarea class="form-control" id="query" placeholder="I have analytical skills and I'm eager to explore new insights. I hold a degree in economics." aria-label="Search"></textarea>
                 </div>
                 <button type="submit" class="form-control" id="search-button">Search</button>
             </form>
+            <div id="loading-progress" class="loading-progress" style="display: none;">
+                <div id="loading" class="loading">
+                    {% include "loading.html" %}
+                </div>
+
+                <h6 class="progress-msg text-center" id="progress-msg"></h6>
+            </div>
         </div>
     </div>
 </div>
@@ -23,55 +30,11 @@
 
 {% block section_2 %}
 
-<div class="container-fluid">
-    <div class="row">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="professions-tab" data-bs-toggle="tab" data-bs-target="#professions-tab-pane" type="button" role="tab" aria-controls="professions-tab-pane" aria-selected="true">Recommended Professions</button>
-            </li>
-        </ul>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-10">
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="professions-tab-pane" role="tabpanel" aria-labelledby="professions-tab" tabindex="0">
-                    <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                                <div class="custom-block bg-white shadow-lg">
-                                    <div class="d-flex">
-                                        <div>
-                                            <h5 class="mb-2">Profession 1</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                            <div class="custom-block bg-white shadow-lg">
-                                    <div class="d-flex">
-                                        <div>
-                                            <h5 class="mb-2">Profession 2</h5>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                            <div class="custom-block bg-white shadow-lg">
-                                    <div class="d-flex">
-                                        <div>
-                                            <h5 class="mb-2">Profession 3</h5>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<div id="professions"></div>
 
 {% endblock section_2 %}
+
+{% block scripts %}
+<script src="../static/js/process-user-profile.js"></script>
+<script src="../static/js/query-suggested-profession.js"></script>
+{% endblock scripts %}

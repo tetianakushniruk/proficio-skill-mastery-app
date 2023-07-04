@@ -9,6 +9,9 @@ app = Flask(__name__)
 load_dotenv()
 app.secret_key = os.getenv('SECRET_KEY')
 
+@app.route('/', methods=['GET'])
+def home():
+    return render_template("index.html", title="Proficiō: Home")
 
 @app.route('/validate', methods=['POST'])
 def validate():
@@ -73,14 +76,26 @@ def get_data():
                            questions=questions,
                            tip=tip)
 
-@app.route('/', methods=['GET'])
-def home():
-    return render_template("index.html", title="Proficiō: Home")
-
-
 @app.route('/find_profession')
 def find_profession():
     return render_template("find_profession.html", title="Proficiō: Find Profession")
+
+@app.route('/profile', methods=['POST'])
+def profile():
+    query = request.form['query']
+    try:
+        session['professions'] = utils.professions(query)
+    except Exception:
+        return jsonify({'error': True}), 400
+    return jsonify({'success': True}), 200
+
+@app.route('/get_professions', methods=['GET'])
+def get_professions():
+    professions = session.get('professions')
+    print(professions)
+    session.clear()
+
+    return render_template("suggested_professions.html", professions=professions)
 
 
 if __name__ == '__main__':

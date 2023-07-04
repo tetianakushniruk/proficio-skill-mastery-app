@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="professions-tab" data-bs-toggle="tab" data-bs-target="#professions-tab-pane" type="button" role="tab" aria-controls="professions-tab-pane" aria-selected="true">Recommended Professions</button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="professions-tab-pane" role="tabpanel" aria-labelledby="professions-tab" tabindex="0">
+                    <p class="text-center">Click on the profession you are interested in for more information.</p>
+                    <div class="row">
+                        {% for x in professions %}
+                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+                                <div class="custom-block bg-white shadow-lg">
+                                    <a class="suggested-profession" data-profession="{{ x }}">
+                                        <div class="d-flex">
+                                            <div>
+                                                <h5 class="mb-2">{{ x }}</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

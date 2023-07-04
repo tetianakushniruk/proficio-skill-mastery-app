@@ -1,7 +1,17 @@
 $(document).ready(function() {
+  var urlParams = new URLSearchParams(window.location.search);
+  var queryParam = urlParams.get('query');
+
+  if (queryParam) {
+    $('#search-bar').val(queryParam);
+    submitForm();
+  }
+
   $('form').on('submit', function(event) {
     event.preventDefault();
-
+    submitForm();
+  });
+  function submitForm(){
     var query = $('#search-bar').val();
     var loadingElement = $('#loading');
     var loadingSection = $('#loading-progress');
@@ -46,10 +56,7 @@ $(document).ready(function() {
           }
         },
         error: function(xhr) {
-          var errorMessage = xhr.responseJSON && xhr.responseJSON.error_msg
-              ? xhr.responseJSON.error_msg :'Oops! Something went wrong. Please try again.'
-          loadingElement.hide();
-          progressMessageElement.text(errorMessage).addClass('error_msg');
+          sendErrorMsg(xhr);
         }
       });
     }
@@ -64,9 +71,15 @@ $(document).ready(function() {
             $('#section_2').show()
         },
         error: function(xhr) {
-          //Do Something to handle error
+          sendErrorMsg(xhr);
         }
       });
     }
-  });
+    function sendErrorMsg(xhr) {
+      var errorMessage = xhr.responseJSON && xhr.responseJSON.error_msg
+              ? xhr.responseJSON.error_msg :'Oops! Something went wrong. Please try again.'
+      loadingElement.hide();
+      progressMessageElement.text(errorMessage).addClass('error_msg');
+    }
+  }
 });

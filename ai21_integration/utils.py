@@ -126,12 +126,15 @@ def tip(field):
     return data
 
 
-def profession(user_input):
+def professions(user_input):
     data = api_request(prompt=prompts.profession_prompt.format(input=user_input),
                        maxTokens=60,
                        temperature=0.65,
                        stopSequences=["##"])
     data = data['suggested_professions']
     print(data)
+
+    if not isinstance(data, list):
+        raise TypeError
 
     return data
