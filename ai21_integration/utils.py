@@ -1,4 +1,6 @@
 import ai21
+import requests
+
 from ai21_integration import prompts
 import json
 
@@ -83,6 +85,36 @@ def roadmap(field):
 
     return data
 
+def book_cover(name, author):
+    search_base_url = 'https://openlibrary.org/search.json'
+    cover_base_url = 'https://covers.openlibrary.org/b/olid/{olid}-L.jpg'
+    params = {
+        'q': ' '.join([name, author]),
+        'mode': 'everything',
+        'language': 'eng'
+    }
+    response = requests.get(search_base_url, params=params)
+    try:
+        response.raise_for_status()
+        data = response.json()
+    except (requests.HTTPError, ValueError) as e:
+        return None
+
+    ids_list = []
+    if not data['num_found']:
+        return None
+
+    for book in data['docs']:
+        if 'cover_edition_key' in book.keys():
+            ids_list.append((book['cover_edition_key'],
+                            max(book['publish_year'])))
+    if not ids_list:
+        return None
+
+    ids_list.sort(key=lambda x: x[1], reverse=True)
+    cover_url = cover_base_url.format(olid=ids_list[0][0])
+
+    return cover_url
 
 def books(field):
     data = api_request(prompt=prompts.books_prompt.format(field=field),
@@ -95,6 +127,7 @@ def books(field):
         name = d['name']
         author = d['author']
         desc = d['description']
+        data[i]['cover_url'] = book_cover(name, author)
         print(f'{i + 1}. "{name}" by {author}: {desc}')
 
     return data
