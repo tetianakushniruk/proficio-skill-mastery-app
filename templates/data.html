@@ -50,17 +50,17 @@
                     <div class="row">
                         {% for x in books %}
                         <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                                <div class="custom-block bg-white shadow-lg ">
-                                    <div class="d-flex">
+                                <div class="custom-block {% if x['cover_url'] %}card{% endif %} bg-white shadow-lg ">
+                                    {% if x['cover_url'] %}
+                                    <img src="{{ x['cover_url'] }}" class="custom-block-image card-image img-fluid" alt="">
+                                    {% endif %}
+                                    <div class="custom-block-content {% if x['cover_url'] %}card-content{% endif %} d-flex">
                                         <div>
                                             <h5 class="mb-2">{{ x['name'] }}</h5>
                                             <p class="mb-2"><i>Author: {{ x['author'] }}</i></p>
                                             <p class="mb-0">{{ x['description'] }}</p>
                                         </div>
                                     </div>
-                                    {% if x['cover_url'] %}
-                                    <img src="{{ x['cover_url'] }}" class="custom-block-image img-fluid" alt="">
-                                    {% endif %}
                                 </div>
                         </div>
                         {% endfor %}
