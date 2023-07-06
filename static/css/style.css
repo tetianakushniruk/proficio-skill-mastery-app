@@ -313,10 +313,10 @@ strong {
   background-image: linear-gradient(0deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   position: relative;
   overflow: hidden;
-  padding-top: 100px;
-  padding-bottom: 120px;
+  padding-top: 200px;
+  padding-bottom: 150px;
   border-radius: 0 0 var(--border-radius-large ) var(--border-radius-large);
-  height: 60vh;
+  height: 70vh;
   transition: height 0.5s ease;
 }
 
@@ -381,20 +381,22 @@ strong {
   transform: translateY(-3px);
 }
 
-.custom-block > a {
-  width: 100%;
+.custom-block-content {
+  flex: 1; /* Allow content to take available space */
 }
 
 .custom-block-image {
   display: none;
-  width: 100%;
+  width: auto;
+  max-height: 100%;
   object-fit: cover;
-  margin-top: 35px;
+  margin-left: 20px; /* Add margin between content and image */
 }
 
 .custom-block:hover .custom-block-image {
   display: block;
 }
+
 
 /*---------------------------------------
   ROADMAP
@@ -594,7 +596,7 @@ strong {
 -----------------------------------------*/
 .loading-progress {
   position: absolute;
-  top: 70%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -724,9 +726,8 @@ strong {
     padding-left: 135px;
   }
   .hero-section {
-    height: 70vh;
+    height: 80vh;
   }
-
 }
 
 @media screen and (max-width: 480px) {
@@ -753,6 +754,8 @@ strong {
   .navbar-brand span {
     font-size: var(--h5-font-size);;
   }
-
+  .loading{
+    opacity: 0;
+  }
 }
 
