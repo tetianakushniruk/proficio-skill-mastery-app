@@ -32,6 +32,9 @@ $(document).ready(function() {
     ];
     var stepCount = progressMessages.length;
     var currentStep = 0;
+    if (queryParam){
+      currentStep = 1;
+    }
 
     loadingSection.show();
     loadingElement.show();
