@@ -78,6 +78,7 @@ h2 {
 
 h3 {
   font-size: var(--h3-font-size);
+  color: var(--primary-color);
 }
 
 h4 {
@@ -690,6 +691,72 @@ strong {
 
 .progress-msg.error_msg{
   margin-top: 50px;
+}
+
+/*---------------------------------------
+  ABOUT PAGE
+-----------------------------------------*/
+
+blockquote {
+  background-color: var(--secondary-transparent-color);
+  border-radius: var(--border-radius-small);
+  font-family: var(--title-font-family);
+  font-size: var(--h4-font-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  display: inline-block;
+  text-align: center;
+  margin: 30px;
+  padding: 40px;
+}
+
+.social-net button {
+  height: 4em;
+  width: 15em;
+  border: none;
+  border-radius: 40px;
+  background-color: #fff;
+  font-family: var(--title-font-family);
+  font-weight: var(--font-weight-bold);
+}
+
+.social-net button span {
+  z-index: 1;
+  display: inline-block;
+  background-color: var(--primary-color);
+  height: 3em;
+  width: 11.5em;
+  border-radius: 25px;
+  color: #fff;
+  line-height: 55px;
+  font-size: 18px;
+  letter-spacing: 3px;
+  transition: all 0.5s;
+}
+
+.social-net button .container {
+  z-index: -1;
+  width: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  transform: translateY(-50px);
+  transition: all 0.4s;
+}
+
+.social-net button .container svg {
+  padding: 0 10px;
+  margin-left: 7px;
+  fill: var(--primary-color);
+}
+
+.social-net button:hover span {
+  width: 0;
+}
+
+.social-net button:hover .container {
+  z-index: 2;
+  width: 100%;
 }
 
 /*---------------------------------------

@@ -7,31 +7,6 @@
     $('.navbar-collapse a').on('click',function(){
       $(".navbar-collapse").collapse('hide');
     });
-    //
-    // // LOADING
-    // $(document).ready(function() {
-    //   var progressMessageElement = $('#progress-message');
-    //   var progressMessages = [
-    //     "Checking your input...",
-    //     "Generating a roadmap...",
-    //     "Fetching recommended books...",
-    //     "Loading interview questions...",
-    //     "Preparing tips..."
-    //   ];
-    //   var progressIndex = 0;
-    //
-    //   function updateProgressMessage() {
-    //     progressMessageElement.text(progressMessages[progressIndex]);
-    //
-    //     progressIndex++;
-    //     if (progressIndex >= progressMessages.length) {
-    //       progressIndex = 0;
-    //     }
-    //   }
-    //
-    //   setInterval(updateProgressMessage, 1000);
-    // });
-
 
     // SCROLLING
     $(window).on('scroll', function(){

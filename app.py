@@ -9,7 +9,7 @@ app = Flask(__name__)
 load_dotenv()
 app.secret_key = os.getenv('SECRET_KEY')
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def home():
     return render_template("index.html", title="Proficiō: Home")
 
@@ -96,6 +96,10 @@ def get_professions():
     session.clear()
 
     return render_template("suggested_professions.html", professions=professions)
+
+@app.route('/about')
+def about():
+    return render_template("about.html", title="Proficiō: About")
 
 
 if __name__ == '__main__':
