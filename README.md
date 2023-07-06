@@ -2,7 +2,11 @@
 
 Proficiō is an innovative app designed to help individuals master new fields, enhance their skills, and achieve their professional goals. Created for the "[Plug into AI with AI21](https://lablab.ai/event/plug-into-ai-with-ai21)" hackathon, Proficiō leverages cutting-edge technology from AI21 Labs to provide personalized guidance and resources for career development.
 
-## Technologies Used
+## 🌐 Demo Website
+
+Check out the [Proficiō Demo Website](http://tetianakushniruk.pythonanywhere.com/) to experience the app in action.
+
+## 🛠️ Technologies Used
 
 Proficiō is built using the following technologies:
 
@@ -13,7 +17,7 @@ Proficiō is built using the following technologies:
 - HTML/CSS
 - JavaScript
 
-## Features
+## 💡 Features
 
 - **Building a Roadmap:** Create a personalized roadmap by inputting your desired field or skill. Our AI-powered algorithms will generate a step-by-step plan, guiding you through the learning process effectively.
 
@@ -25,7 +29,7 @@ Proficiō is built using the following technologies:
 
 - **Find Your Profession:** Explore potential professions based on your skills, passions, experience, and education. Our AI-driven algorithms analyze your unique profile and recommend career paths that align with your strengths and interests.
 
-## Getting Started
+## 🚀 Getting Started
 
 To get started with Proficiō, follow these steps:
 
@@ -54,12 +58,14 @@ pip install -r requirements.txt
   flask run
   ```
 5. Open a web browser and visit `http://localhost:5000` to access Proficiō
-## About the Project
+
+## 📜 About the Project
 
 Proficiō was developed as part of the "Plug into AI with AI21" hackathon, an event dedicated to enhance user experience and demonstrate how AI can be integrated into everyday digital tasks.
 
 Proficiō's goal is to empower individuals by providing a comprehensive platform for discovering, learning, and excelling in new fields. By leveraging AI-driven recommendations, Proficiō revolutionizes the learning experience, making career development accessible and engaging.
-## Contributing
+
+## 🤝 Contributing
 
 Contributions are welcome! If you'd like to contribute to Proficiō, please follow these steps:
 
@@ -79,7 +85,7 @@ git push origin your-branch-name
 ```
 5. Submit a pull request detailing your changes.
 
-## Contact
+## 📧 Contact
 
 For questions, suggestions, or collaboration opportunities, feel free to contact:
 
