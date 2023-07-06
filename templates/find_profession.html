@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block section_1 %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-12 mx-auto">
+            <h1 class="text-white text-center">Find Your Profession</h1>
+
+            <h6 class="text-center">Uncover your true calling based on your skills, passions, experience, and education.</h6>
+
+            <form method="get" class="find-profession-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                <div class="input-group input-group-lg">
+                    <textarea class="form-control" id="query" placeholder="I have analytical skills and I'm eager to explore new insights. I hold a degree in economics." aria-label="Search"></textarea>
+                </div>
+                <button type="submit" class="form-control" id="search-button">Search</button>
+            </form>
+            <div id="loading-progress" class="loading-progress" style="display: none;">
+                <div id="loading" class="loading">
+                    {% include "loading.html" %}
+                </div>
+
+                <h6 class="progress-msg text-center" id="progress-msg"></h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock section_1 %}
+
+{% block section_2 %}
+
+<div id="professions"></div>
+
+{% endblock section_2 %}
+
+{% block scripts %}
+<script src="../static/js/process-user-profile.js"></script>
+<script src="../static/js/query-suggested-profession.js"></script>
+{% endblock scripts %}
